@@ -2,10 +2,11 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 type loginSignupProp = {
-  login : boolean
-}
+  login?: boolean;
+};
 const Header = (props: loginSignupProp) => {
-  const navigate = useNavigate()
+  console.log(props);
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
       <div className="logo">
@@ -14,8 +15,8 @@ const Header = (props: loginSignupProp) => {
           alt="no internet"
         />
       </div>
-      <button onClick={()=>navigate(props.login ? '/login' : '/signup')}>
-        {props.login ? 'Login' : 'Sign In'}
+      <button onClick={() => navigate(props.login ? "/login" : "/signup")}>
+        {props.login ? "Login" : "Sign In"}
       </button>
     </HeaderContainer>
   );
@@ -25,14 +26,14 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 4rem;
-  .logo{
-    img{
+  padding: 1rem 4rem;
+  .logo {
+    img {
       height: 3rem;
       cursor: pointer;
     }
   }
-  button{
+  button {
     padding: 0.5rem 1rem;
     background-color: red;
     border: none;
