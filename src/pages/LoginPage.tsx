@@ -1,14 +1,21 @@
-
 import BackgroundImage from "../components/BackgroundImage";
-import Header from "../components/Header";
 import styled from "styled-components";
+import { firebaseAuth } from "../utils/firebase.config";
+import { useNavigate } from "react-router-dom";
+
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import Header from "../components/Header";
+import { useState } from "react";
 
 const LoginPage = () => {
+  const [email, useEmail] = useState("");
+  const [Password, setPassword] = useState("second");
+
   return (
     <Wrapper>
       <BackgroundImage />
       <div className="loginContent">
-        <Header  />
+        <Header />
         <div className="form-wrapper">
           <div className="form">
             <div className="title">
