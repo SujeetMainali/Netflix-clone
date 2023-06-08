@@ -21,11 +21,19 @@ const TopNav = () => {
         </div>
         <ul className="links">
             {navLinks.map(({name, link})=>{
-
+                  return(
+                    <li key={name}>
+                        <Link to={link}>{name}</Link>
+                    </li>
+                  )
             })}
         </ul>
       </div>
-      <div className="rightSide"></div>
+      <div className="rightSide">
+        <button>
+          <AiOutlineLogout />
+        </button>
+      </div>
     </NavContainer>
   );
 }
