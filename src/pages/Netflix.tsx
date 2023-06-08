@@ -1,9 +1,46 @@
-import React from 'react'
+import {useState} from 'react'
+import TopNav from '../components/TopNav'
 
 const Netflix = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+  window.onscroll =()=>{
+    setIsScrolled(window.scrollY === 0? false : true)
+    return ()=>(window.onscroll = null)
+  }
+  // console.log(isScrolled);
+  
   return (
-    <div>Netflix</div>
-  )
+    <>
+      <div className="hero">
+        <TopNav />
+        <img
+          style={{ objectFit: "cover", width: "100vw", height: "100vh" }}
+          src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
+          alt="no internet connection"
+        />
+        <img
+          style={{ objectFit: "cover", width: "100vw", height: "100vh" }}
+          src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
+          alt="no internet connection"
+        />
+        <img
+          style={{ objectFit: "cover", width: "100vw", height: "100vh" }}
+          src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
+          alt="no internet connection"
+        />
+        <img
+          style={{ objectFit: "cover", width: "100vw", height: "100vh" }}
+          src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
+          alt="no internet connection"
+        />
+        <img
+          style={{ objectFit: "cover", width: "100vw", height: "100vh" }}
+          src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
+          alt="no internet connection"
+        />
+      </div>
+    </>
+  );
 }
 
 export default Netflix
