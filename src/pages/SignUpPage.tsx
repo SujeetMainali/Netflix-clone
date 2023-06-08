@@ -19,16 +19,17 @@ const SignUpPage = () => {
     try {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      navigate('/login')
     } catch (error) {
       console.log(error);
     }
   };
 
-  onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) {
-      navigate("/");
-    }
-  });
+  // onAuthStateChanged(firebaseAuth, (currentUser) => {
+  //   if (currentUser) {
+  //     navigate("/login");
+  //   }
+  // });
 
   return (
     <Container showPassword={showPassword}>
