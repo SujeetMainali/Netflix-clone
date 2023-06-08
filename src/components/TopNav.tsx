@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {AiOutlineLogout} from 'react-icons/ai'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -39,7 +39,41 @@ const TopNav = () => {
 }
 
 const NavContainer = styled.div`
-    
-`
+  background-color: #434141;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid green; */
+  .leftSide {
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .logo {
+      img {
+        margin: 2rem;
+        height: 2rem;
+        cursor: pointer;
+      }
+    }
+    .links {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+    }
+    .links li {
+      margin-left: 2rem;
+    }
+  }
+  .rightSide {
+    /* border: 2px solid purple; */
+    button{
+      height: 2rem;
+      margin: 1rem;
+      /* border-radius: 2px; */
+    }
+  }
+`;
 
 export default TopNav
