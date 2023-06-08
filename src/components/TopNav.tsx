@@ -1,15 +1,20 @@
-
-import {AiOutlineLogout} from 'react-icons/ai'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { AiOutlineLogout } from "react-icons/ai";
+import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase.config";
 
 const TopNav = () => {
-    const navLinks = [
-        {name: 'HomePage', link: '/'},
-        {name: 'Tv Show', link: '/tv'},
-        {name: 'My List', link: '/mylist'},
-        {name: 'Movies', link: '/movies'},
-    ]
+  const navLinks = [
+    { name: "HomePage", link: "/" },
+    { name: "Tv Show", link: "/tv" },
+    { name: "My List", link: "/mylist" },
+    { name: "Movies", link: "/movies" },
+  ];
+  const navigate = useNavigate();
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate("/login");
+  });
   return (
     <NavContainer>
       <div className="leftSide">
@@ -20,23 +25,23 @@ const TopNav = () => {
           />
         </div>
         <ul className="links">
-            {navLinks.map(({name, link})=>{
-                  return(
-                    <li key={name}>
-                        <Link to={link}>{name}</Link>
-                    </li>
-                  )
-            })}
+          {navLinks.map(({ name, link }) => {
+            return (
+              <li key={name}>
+                <Link to={link}>{name}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="rightSide">
-        <button>
+        <button onClick={() => signOut(firebaseAuth)}>
           <AiOutlineLogout />
         </button>
       </div>
     </NavContainer>
   );
-}
+};
 
 const NavContainer = styled.div`
   background-color: #434141;
@@ -68,7 +73,7 @@ const NavContainer = styled.div`
   }
   .rightSide {
     /* border: 2px solid purple; */
-    button{
+    button {
       height: 2rem;
       margin: 1rem;
       /* border-radius: 2px; */
@@ -76,4 +81,4 @@ const NavContainer = styled.div`
   }
 `;
 
-export default TopNav
+export default TopNav;
