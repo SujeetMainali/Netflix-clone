@@ -59,24 +59,39 @@ const NavContainer = styled.div`
       img {
         margin: 2rem;
         height: 2rem;
-        cursor: pointer;
+        cursor: default;
       }
     }
     .links {
       display: flex;
       justify-content: space-between;
       list-style: none;
+      cursor: default;
     }
     .links li {
       margin-left: 2rem;
+      cursor: default;
+      color: white;
+    }
+    Links{
+      color:  white;
     }
   }
   .rightSide {
     /* border: 2px solid purple; */
+    color: red;
+    margin-right: 2rem;
     button {
       height: 2rem;
+      color: black;
       margin: 1rem;
-      /* border-radius: 2px; */
+      background-color: red;
+      width: 4rem;
+      border-radius: 5px;
+      font-size: large;
+      font-weight: 50px;
+      text-align: center;
+      
     }
   }
 `;
