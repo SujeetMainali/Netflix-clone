@@ -61,9 +61,12 @@ const NavContainer = styled.div`
       display: flex;
       justify-content: space-between;
       list-style: none;
+      /* cursor: pointer; */
     }
     .links li {
       margin-left: 2rem;
+      color: white;
+      cursor: pointer;
     }
   }
   .rightSide {
