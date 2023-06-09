@@ -1,15 +1,20 @@
-
-import {AiOutlineLogout} from 'react-icons/ai'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { AiOutlineLogout } from "react-icons/ai";
+import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { firebaseAuth } from "../utils/firebase.config";
 
 const TopNav = () => {
-    const navLinks = [
-        {name: 'HomePage', link: '/'},
-        {name: 'Tv Show', link: '/tv'},
-        {name: 'My List', link: '/mylist'},
-        {name: 'Movies', link: '/movies'},
-    ]
+  const navLinks = [
+    { name: "HomePage", link: "/" },
+    { name: "Tv Show", link: "/tv" },
+    { name: "My List", link: "/mylist" },
+    { name: "Movies", link: "/movies" },
+  ];
+  const navigate = useNavigate();
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (!currentUser) navigate("/login");
+  });
   return (
     <NavContainer>
       <div className="leftSide">
@@ -20,23 +25,23 @@ const TopNav = () => {
           />
         </div>
         <ul className="links">
-            {navLinks.map(({name, link})=>{
-                  return(
-                    <li key={name}>
-                        <Link to={link}>{name}</Link>
-                    </li>
-                  )
-            })}
+          {navLinks.map(({ name, link }) => {
+            return (
+              <li key={name}>
+                <Link to={link}>{name}</Link>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="rightSide">
-        <button>
+        <button onClick={() => signOut(firebaseAuth)}>
           <AiOutlineLogout />
         </button>
       </div>
     </NavContainer>
   );
-}
+};
 
 const NavContainer = styled.div`
   background-color: #434141;
@@ -54,7 +59,7 @@ const NavContainer = styled.div`
       img {
         margin: 2rem;
         height: 2rem;
-        cursor: pointer;
+        cursor: default;
       }
     }
     .links {
@@ -65,18 +70,30 @@ const NavContainer = styled.div`
     }
     .links li {
       margin-left: 2rem;
+      cursor: default;
       color: white;
-      cursor: pointer;
+    }
+    Links{
+      color:  white;
     }
   }
   .rightSide {
     /* border: 2px solid purple; */
-    button{
+    color: red;
+    margin-right: 2rem;
+    button {
       height: 2rem;
+      color: black;
       margin: 1rem;
-      /* border-radius: 2px; */
+      background-color: red;
+      width: 4rem;
+      border-radius: 5px;
+      font-size: large;
+      font-weight: 50px;
+      text-align: center;
+      
     }
   }
 `;
 
-export default TopNav
+export default TopNav;
