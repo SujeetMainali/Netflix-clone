@@ -4,7 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase.config";
 
-const TopNav = () => {
+interface topNavProps{
+  isScrolled: boolean
+}
+
+const TopNav = (props: topNavProps) => {
   const navLinks = [
     { name: "HomePage", link: "/" },
     { name: "Tv Show", link: "/tv" },
