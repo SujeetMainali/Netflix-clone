@@ -59,6 +59,7 @@ const NavContainer = styled.div`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin: 3rem;
     .logo {
       img {
         margin: 2rem;
