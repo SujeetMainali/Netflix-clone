@@ -46,7 +46,7 @@ const Netflix = () => {
   );
 };
 const HeroContainer = styled.div`
-f
+
 
   .hero {
     position: relative;
