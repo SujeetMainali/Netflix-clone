@@ -1,22 +1,19 @@
-import { useState } from "react";
 import TopNav from "../components/TopNav";
 import styled from "styled-components";
-import { AiOutlineInfoCircle } from "react-icons/ai";
-import { FaPlay } from "react-icons/fa";
 
 const Netflix = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  window.onscroll = () => {
-    setIsScrolled(window.scrollY === 0 ? false : true);
-    return () => (window.onscroll = null);
-  };
+  // const [isScrolled, setIsScrolled] = useState(false);
+  // window.onscroll = () => {
+  //   setIsScrolled(window.scrollY === 0 ? false : true);
+  //   return () => (window.onscroll = null);
+  // };
   // console.log(isScrolled);
 
   return (
     <>
       <HeroContainer>
         <div className="hero">
-          <TopNav isScrolled={isScrolled} />
+          <TopNav />
           <div className="background-image">
             <img
               src="https://images.immediate.co.uk/production/volatile/sites/3/2019/04/Avengers-Endgame-Banner-2-de7cf60.jpg?quality=90&crop=93px,0px,1013px,675px&resize=980,654"
@@ -46,11 +43,9 @@ const Netflix = () => {
   );
 };
 const HeroContainer = styled.div`
-
-
   .hero {
     position: relative;
-    .background-image{
+    .background-image {
       filter: brightness(40%);
     }
     .background-image img {
@@ -112,7 +107,6 @@ const HeroContainer = styled.div`
         border: none;
         cursor: pointer;
         border: 0.1rem solid white;
-
       }
     }
   }

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { firebaseAuth } from "../utils/firebase.config";
 import Header from "../components/Header";
